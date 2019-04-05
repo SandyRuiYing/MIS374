@@ -47,9 +47,9 @@ class AddChildView(CreateView):
             return super().get_context_data(**kwargs)
 
         def form_valid(self, form):
-            parent = self.request.user
+
             childinfo = form.save(commit=False)
-            childinfo.Parent = parent
+            childinfo.parent_id = self.request.user.pk
 
             childinfo.save()
             return redirect('home')
