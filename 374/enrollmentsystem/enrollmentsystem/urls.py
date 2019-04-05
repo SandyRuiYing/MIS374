@@ -3,7 +3,7 @@ from enrollment.views import enrollment, parents, teachers, admins
 from django.contrib import admin
 
 urlpatterns = [
-    path('home/', enrollment.home, name="home"),
+    path('', enrollment.home, name="home"),
     path('admin/', admin.site.urls),
     path('', include('enrollment.urls')),
     path('accounts/', include('django.contrib.auth.urls')),

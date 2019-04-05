@@ -10,8 +10,10 @@ def home(request):
     if request.user.is_authenticated:
         if request.user.is_teacher:
              return redirect('teachers/index')
-        else:
+        if request.user.is_parent:
              return redirect('parents/index')
+        if request.user.is_admin:
+             return redirect('admins/index')
 
     return render(request, 'enrollment/home.html')
 

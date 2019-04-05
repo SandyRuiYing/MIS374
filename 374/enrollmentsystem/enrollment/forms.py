@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from django.forms.utils import ValidationError
 
-from .models import (User)
+from .models import (User, Child)
 
 
 class TeacherSignUpForm(UserCreationForm):
@@ -43,4 +43,10 @@ class AdminSignUpForm(UserCreationForm):
 
 
 
-
+class AddChildForm(forms.ModelForm):
+    class Meta:
+        model = Child
+        fields = ('first_name','last_name','Date_of_Birth',)
+        widgets = {
+            'Date_of_Birth': forms.DateInput
+        }

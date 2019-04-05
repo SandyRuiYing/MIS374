@@ -6,7 +6,7 @@ from django.utils.html import escape, mark_safe
 class User(AbstractUser):
     is_parent = models.BooleanField(default=False)
     is_teacher = models.BooleanField(default=False)
-    is_student = models.BooleanField(default=False)
+    is_admin = models.BooleanField(default=False)
 
 
 class Parent(models.Model):
@@ -29,4 +29,13 @@ class Teacher(models.Model):
     def __str__(self):
         return self.user.username
 
+
+class Child(models.Model):
+     parent = models.ForeignKey(User, on_delete=models.CASCADE,related_name='children')
+     first_name = models.CharField(max_length=255)
+     last_name = models.CharField(max_length=255)
+     Date_of_Birth = models.DateField()
+
+     def __str__(self):
+         return self.first_name, self.last_name, self.Date_of_Birth
 

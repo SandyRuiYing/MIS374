@@ -30,3 +30,6 @@ class AdminSignUpView(CreateView):
         return redirect('login')
 
 
+def index(request):
+
+    return render(request, 'enrollment/admins/index.html')
