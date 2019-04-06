@@ -7,14 +7,16 @@
     <table class="table mb-0">
       <thead>
         <tr>
-          <th> Parent </th>
+          <th>Parent</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        {% for user in User %}
+
+        {% for parent in user.0 %}
           <tr>
-            <td class="align-middle">{{ user.username }}</td>
+
+            <td class="align-middle">{{ parent.username }}</td>
             <td class="text-right">
             </td>
           </tr>
@@ -23,6 +25,59 @@
             <td class="bg-light text-center font-italic" colspan="4">No quiz matching your interests right now.</td>
           </tr>
         {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+ <div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Teacher</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {% for teacher in user.1 %}
+          <tr>
+
+            <td class="align-middle">{{ teacher.username }}</td>
+            <td class="text-right">
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="4">No quiz matching your interests right now.</td>
+          </tr>
+        {% endfor %}
+
+      </tbody>
+    </table>
+  </div>
+ <div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Admin</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {% for admin in user.2 %}
+          <tr>
+
+            <td class="align-middle">{{ admin.username }}</td>
+            <td class="text-right">
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="4">No quiz matching your interests right now.</td>
+          </tr>
+        {% endfor %}
+
       </tbody>
     </table>
   </div>
