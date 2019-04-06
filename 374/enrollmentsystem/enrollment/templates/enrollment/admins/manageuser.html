@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="/accounts/signup/teacher" class="btn btn-parent btn-lg" role="button">Create Teacher Account</a>
+    <a href="/accounts/signup/admin" class="btn btn-parent btn-lg" role="button">Create Admin Account</a>
+   <div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th> Parent </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in User %}
+          <tr>
+            <td class="align-middle">{{ user.username }}</td>
+            <td class="text-right">
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="4">No quiz matching your interests right now.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock %}
+
+
+

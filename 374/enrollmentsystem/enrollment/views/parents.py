@@ -23,7 +23,7 @@ class ParentSignUpView(CreateView):
    def form_valid(self, form):
          user = form.save()
          login(self.request, user)
-         return redirect('login')
+         return redirect('home')
 
 class index(ListView):
     model = Child

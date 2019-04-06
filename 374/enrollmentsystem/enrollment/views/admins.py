@@ -26,10 +26,20 @@ class AdminSignUpView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        login(self.request, user)
-        return redirect('login')
+
+        return redirect('home')
 
 
 def index(request):
 
     return render(request, 'enrollment/admins/index.html')
+
+class manageUserView(ListView):
+    model = User
+    context_object_name = 'User'
+    template_name = 'enrollment/admins/manageuser.html'
+
+    def get_queryset(self):
+
+        queryset = User.objects.all()
+        return queryset
