@@ -13,7 +13,7 @@
       </thead>
       <tbody>
 
-        {% for parent in user.0 %}
+        {% for parent in User.0 %}
           <tr>
 
             <td class="align-middle">{{ parent.username }}</td>
@@ -22,7 +22,7 @@
           </tr>
         {% empty %}
           <tr>
-            <td class="bg-light text-center font-italic" colspan="4">No quiz matching your interests right now.</td>
+            <td class="bg-light text-center font-italic" colspan="4"></td>
           </tr>
         {% endfor %}
 
@@ -39,7 +39,7 @@
       </thead>
       <tbody>
 
-        {% for teacher in user.1 %}
+        {% for teacher in User.1 %}
           <tr>
 
             <td class="align-middle">{{ teacher.username }}</td>
@@ -48,7 +48,7 @@
           </tr>
         {% empty %}
           <tr>
-            <td class="bg-light text-center font-italic" colspan="4">No quiz matching your interests right now.</td>
+            <td class="bg-light text-center font-italic" colspan="4"></td>
           </tr>
         {% endfor %}
 
@@ -65,7 +65,7 @@
       </thead>
       <tbody>
 
-        {% for admin in user.2 %}
+        {% for admin in User.2 %}
           <tr>
 
             <td class="align-middle">{{ admin.username }}</td>
@@ -74,7 +74,7 @@
           </tr>
         {% empty %}
           <tr>
-            <td class="bg-light text-center font-italic" colspan="4">No quiz matching your interests right now.</td>
+            <td class="bg-light text-center font-italic" colspan="4"></td>
           </tr>
         {% endfor %}
 

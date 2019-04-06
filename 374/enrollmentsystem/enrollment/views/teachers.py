@@ -26,7 +26,7 @@ class TeacherSignUpView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        return redirect('home')
+        return redirect('/admins/manageuser')
 
 
 def index(request):
