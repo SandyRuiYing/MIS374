@@ -9,8 +9,8 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
-import os
+from __future__ import absolute_import, unicode_literals
+import os, sys
 from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -28,7 +28,22 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SITE_ID = 1
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
+MEDIA_URL = STATIC_URL + "media/"
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
+ADMIN_MEDIA_PREFIX = STATIC_URL + "admin/"
+ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
+TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
+SECRET_KEY = "asdfa4wtW#$Gse4aGdfs"
+ADMINS = ()
 
+MANAGERS = ADMINS
+if "test" not in sys.argv:
+    LOGIN_URL = "/admin/"
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,8 +53,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'crispy_forms',
-    'enrollment'
+    'enrollment',
+    'forms_builder.forms',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +67,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware'
+
 ]
 
 ROOT_URLCONF = 'enrollmentsystem.urls'
@@ -66,6 +85,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+
+
             ],
         },
     },
@@ -155,3 +180,11 @@ MESSAGE_TAGS = {
 # Third party apps configuration
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
+
+TEMPLATE_DEBUG = DEBUG
