@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Welcome to the All Austin Coop Nursery School! <span class="icon-emo-happy"></span></h2>
+  <p class="lead">
+    If you already have an account, go ahead and <a href="{% url 'login' %}">log in</a>. If you are new parent to the All Austin Coop Nursery School, get started
+    by creating a <a href="{% url 'parent_signup' %}"> account</a> .
+  </p>
+  <hr>
+{% endblock %}
