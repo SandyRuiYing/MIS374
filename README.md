@@ -7,4 +7,4 @@ Step2: pip install -r requirements.txt
 
 
 
-Step3: pip install -U django-forms-builder
+
