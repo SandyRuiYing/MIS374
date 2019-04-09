@@ -1,7 +1,5 @@
 from django.shortcuts import redirect, render
 from django.views.generic import TemplateView
-from ..models import User
-from django.contrib.auth import login
 class SignUpView(TemplateView):
     template_name = 'registration/signup.html'
 

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 from __future__ import absolute_import, unicode_literals
 import os, sys
 from django.contrib.messages import constants as messages
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SITE_ID = 1
+
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIRNAME = PROJECT_ROOT.split(os.sep)[-1]
 STATIC_URL = "/static/"
@@ -47,16 +48,17 @@ if "test" not in sys.argv:
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
     'crispy_forms',
     'enrollment',
     'forms_builder.forms',
+
 ]
 
 MIDDLEWARE = [
@@ -106,6 +108,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
     }
 }
 
@@ -188,3 +191,8 @@ except ImportError:
     pass
 
 TEMPLATE_DEBUG = DEBUG
+SITE_ID = 1
+SITE_NAME = 'example.com'
+SITE_DOMAIN = 'example.com'
+django_heroku.settings(locals())
+

@@ -5,16 +5,11 @@ try:
 except ImportError:
     # For Django 1.8 compatibility
     from django.conf.urls import url as re_path, include
-from django.contrib import admin
-from django.shortcuts import render
-
-from forms_builder.forms.models import Form
 from forms_builder.forms import urls as form_urls
-from django.urls import include, path
+from django.urls import  path
 from enrollment.views import enrollment, parents, teachers, admins
-from django.contrib import admin
 from django.conf.urls import include, url
-import forms_builder.forms.urls # add this import
+
 
 
 from django.contrib import admin
@@ -30,8 +25,7 @@ urlpatterns = [
     path('accounts/signup/admin/', admins.AdminSignUpView.as_view(), name='admin_signup'),
     re_path('admin/', admin.site.urls),
     re_path('forms/', include(form_urls)),
-    re_path('$', lambda request: render(request, "index.html",
-                                          {"forms": Form.objects.all()})),
+
 
 
 ]

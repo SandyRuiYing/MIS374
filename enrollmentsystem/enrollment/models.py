@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
+
 from django.db import models
-from django.utils.html import escape, mark_safe
+
 
 
 class User(AbstractUser):
@@ -35,4 +36,5 @@ class Child(models.Model):
      first_name = models.CharField(max_length=255)
      last_name = models.CharField(max_length=255)
      Date_of_Birth = models.DateField()
+
 
