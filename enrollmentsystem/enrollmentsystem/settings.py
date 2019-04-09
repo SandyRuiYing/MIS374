@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'enrollment',
     'forms_builder.forms',
-    'allauth.socialaccount',
+    #'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
