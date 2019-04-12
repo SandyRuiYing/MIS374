@@ -1,5 +1,5 @@
 # MIS374
-Step1: navigate to the location of requirement.txt
+Step1: navigate to the location of requirements.txt
 
 
 Step2: pip install -r requirements.txt 
