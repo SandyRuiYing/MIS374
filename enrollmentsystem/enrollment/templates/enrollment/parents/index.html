@@ -21,8 +21,9 @@
         {% for child in children %}
           <tr>
             <td class="align-middle">{{ child.first_name }}</td>
-            <td class="align-middle">{{ child.last_name}}</td>
+            <td class="align-middle">{{ child.last_name }}</td>
             <td class="text-right">
+              <a href="{% url 'parents:childform' child.pk %}" class="btn btn-primary">Start Form</a>
             </td>
           </tr>
         {% empty %}

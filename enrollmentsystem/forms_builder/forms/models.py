@@ -8,13 +8,11 @@ try:
 except ImportError:
     # For Django 1.8 compatibility
     from django.core.urlresolvers import reverse
-
 from django.db import models
 from django.db.models import Q
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext, ugettext_lazy as _
 from future.builtins import str
-
 from forms_builder.forms import fields
 from forms_builder.forms import settings
 from forms_builder.forms.utils import now, slugify, unique_slug
@@ -232,7 +230,6 @@ class AbstractFormEntry(models.Model):
     """
     An entry submitted via a user-built form.
     """
-
     entry_time = models.DateTimeField(_("Date/time"))
 
     class Meta:
@@ -271,8 +268,8 @@ class FieldEntry(AbstractFieldEntry):
 
 
 class Form(AbstractForm):
+    #child = models.ForeignKey(Child, related_name="forms", on_delete=models.CASCADE)
     pass
-
 
 class Field(AbstractField):
     """

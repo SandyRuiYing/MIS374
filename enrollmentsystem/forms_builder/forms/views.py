@@ -17,11 +17,11 @@ from django.views.generic.base import TemplateView
 from email_extras.utils import send_mail_template
 
 from forms_builder.forms.forms import FormForForm
-from forms_builder.forms.models import Form
+from forms_builder.forms.models import Form, FormEntry
 from forms_builder.forms.settings import EMAIL_FAIL_SILENTLY
 from forms_builder.forms.signals import form_invalid, form_valid
 from forms_builder.forms.utils import split_choices
-
+from enrollment.models import TakenForm, User
 
 class FormDetail(TemplateView):
 
@@ -42,7 +42,9 @@ class FormDetail(TemplateView):
             return redirect("%s?%s=%s" % bits)
         return self.render_to_response(context)
 
+
     def post(self, request, *args, **kwargs):
+
         published = Form.objects.published(for_user=request.user)
         form = get_object_or_404(published, slug=kwargs["slug"])
         form_for_form = FormForForm(form, RequestContext(request),
@@ -57,7 +59,18 @@ class FormDetail(TemplateView):
             for f in form_for_form.files.values():
                 f.seek(0)
                 attachments.append((f.name, f.read()))
-            entry = form_for_form.save()
+            user_id = request.user.id
+            user = User.objects.get(id = user_id)
+            entry = form_for_form.save(commit=False)
+            entry.save()
+            takenform = TakenForm.objects.filter(user=user, form=form)
+
+            if not takenform:
+                TakenForm.objects.create(user=user, form=form, formentries=entry)
+            else:
+                takenform.update(formentries_id=entry.id)
+            return redirect('home')
+
             form_valid.send(sender=request, form=form_for_form, entry=entry)
             self.send_emails(request, form_for_form, form, entry, attachments)
             if not self.request.is_ajax():
@@ -110,6 +123,8 @@ class FormDetail(TemplateView):
                                attachments=attachments,
                                fail_silently=EMAIL_FAIL_SILENTLY,
                                headers=headers)
+            
+
 
 form_detail = FormDetail.as_view()
 

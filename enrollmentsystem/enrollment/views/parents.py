@@ -1,8 +1,9 @@
 from django.contrib.auth import login
 from django.views.generic import CreateView, ListView
 from ..forms import ParentSignUpForm, AddChildForm
-from ..models import User, Child
-from django.shortcuts import redirect
+from ..models import User, Child, TakenForm
+from django.shortcuts import redirect, render
+from forms_builder.forms.models import Form
 
 class ParentSignUpView(CreateView):
    model = User
@@ -18,17 +19,19 @@ class ParentSignUpView(CreateView):
          login(self.request, user)
          return redirect('home')
 
-class index(ListView):
-    model = Child
-    ordering = ('last_name',)
-    context_object_name = 'children'
-    template_name = 'enrollment/parents/index.html'
+def index(request):
+    #model = Child
+    #ordering = ('last_name',)
+    #context_object_name = 'children'
+    #template_name = 'enrollment/parents/index.html'
 
-    def get_queryset(self):
-        user = self.request.user
-        pk = self.request.user.pk
-        queryset = user.children.all()
-        return queryset
+    #def get_queryset(self):
+    user = request.user
+    children = user.children.all()
+    forms = user.forms.all()
+    return render(request, 'enrollment/parents/index.html', {
+        'children': children, 'forms': forms})
+
 
 class AddChildView(CreateView):
         model = Child
@@ -40,9 +43,24 @@ class AddChildView(CreateView):
             return super().get_context_data(**kwargs)
 
         def form_valid(self, form):
-
             childinfo = form.save(commit=False)
             childinfo.parent_id = self.request.user.pk
-
             childinfo.save()
+            for i in Form.objects.all():
+                TakenForm.objects.create(user=self.request.user, form=i)
             return redirect('home')
+
+def ChildFormView(request, pk):
+
+    #model = Form
+    #context_object_name = 'Form'
+    #template_name = 'enrollment/parents/child_form.html'
+
+   # def get_queryset(self):
+     #   form = Form.objects.filter()
+      #  return form
+    form = Form.objects.filter()
+    child = Child.objects.get(id = pk)
+    return render(request, 'enrollment/parents/child_form.html', {
+        'Form': form, 'id': pk, 'child': child})
+
