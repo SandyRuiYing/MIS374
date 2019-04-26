@@ -131,6 +131,8 @@ class FormForForm(forms.ModelForm):
     class Meta:
         model = FormEntry
         exclude = ("form", "entry_time")
+        fields = ['childid']
+        widgets = {'childid': forms.HiddenInput()}
 
     def __init__(self, form, context, *args, **kwargs):
         """

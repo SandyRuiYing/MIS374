@@ -34,6 +34,30 @@
       </tbody>
     </table>
   </div>
+Step3: Required documents for downloading
+<div class="card">
+    <table class="table mb-0">
+       <thead>
+        <tr>
+          <th>Documents</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for docs in documents %}
+          <tr>
+            <td class="text-left">
+            <a href="/media/{{ docs.document }}">{{ docs.document }}</a>
+             </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="4"></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 
 {% endblock %}
 

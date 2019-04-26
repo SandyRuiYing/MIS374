@@ -1,10 +1,12 @@
 from django.contrib.auth import login
 from django.views.generic import CreateView, ListView
 from ..forms import ParentSignUpForm, AddChildForm
-from ..models import User, Child, TakenForm
+from ..models import User, Child, UploadDocument
 from django.shortcuts import redirect, render
 from forms_builder.forms.models import Form
-
+import os
+from django.conf import settings
+from django.http import HttpResponse, Http404
 class ParentSignUpView(CreateView):
    model = User
    form_class = ParentSignUpForm
@@ -28,9 +30,10 @@ def index(request):
     #def get_queryset(self):
     user = request.user
     children = user.children.all()
-    forms = user.forms.all()
+
+    documents = UploadDocument.objects.all()
     return render(request, 'enrollment/parents/index.html', {
-        'children': children, 'forms': forms})
+        'children': children, 'documents':documents})
 
 
 class AddChildView(CreateView):
@@ -46,17 +49,15 @@ class AddChildView(CreateView):
             childinfo = form.save(commit=False)
             childinfo.parent_id = self.request.user.pk
             childinfo.save()
-            for i in Form.objects.all():
-                TakenForm.objects.create(user=self.request.user, form=i)
             return redirect('home')
 
 def ChildFormView(request, pk):
 
-    #model = Form
-    #context_object_name = 'Form'
-    #template_name = 'enrollment/parents/child_form.html'
+    model = Form
+    context_object_name = 'Form'
+    template_name = 'enrollment/parents/child_form.html'
 
-   # def get_queryset(self):
+    #def get_queryset(self):
      #   form = Form.objects.filter()
       #  return form
     form = Form.objects.filter()

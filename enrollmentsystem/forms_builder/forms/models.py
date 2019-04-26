@@ -261,6 +261,8 @@ class AbstractFieldEntry(models.Model):
 
 class FormEntry(AbstractFormEntry):
     form = models.ForeignKey("Form", related_name="entries", on_delete=models.CASCADE)
+    childid = models.IntegerField(null = True)
+
 
 
 class FieldEntry(AbstractFieldEntry):

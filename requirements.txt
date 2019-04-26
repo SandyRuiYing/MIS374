@@ -1,6 +1,9 @@
 Django==2.0.1
 django-crispy-forms==1.7.0
 pytz==2017.3
-django-forms-builder
+django-forms-builder==0.14.0
 django-heroku
 gunicorn
+mysqlclient
+xlwt
+django-bootstrap4

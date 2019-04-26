@@ -13,9 +13,10 @@
 <br>
     {% for form in Form %}
 
-       <p><a href="{{ form.get_absolute_url }}">{{ form.title }}</a></p>
-
+       <p><a href="{{ form.get_absolute_url }}?childID={{ child.id }}">{{ form.title }}</a></p>
+        <br>
     {% endfor %}
 </body>
+
 
 {% endblock %}

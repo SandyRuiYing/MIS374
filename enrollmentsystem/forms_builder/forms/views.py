@@ -9,7 +9,7 @@ try:
 except ImportError:
     # For Django 1.8 compatibility
     from django.core.urlresolvers import reverse
-from django.http import HttpResponse, HttpResponseBadRequest
+from django.http import HttpResponse, HttpResponseBadRequest, Http404
 from django.shortcuts import get_object_or_404, redirect, render_to_response
 from django.template import RequestContext
 from django.utils.http import urlquote
@@ -21,8 +21,8 @@ from forms_builder.forms.models import Form, FormEntry
 from forms_builder.forms.settings import EMAIL_FAIL_SILENTLY
 from forms_builder.forms.signals import form_invalid, form_valid
 from forms_builder.forms.utils import split_choices
-from enrollment.models import TakenForm, User
-
+from enrollment.models import User, Child
+from django.contrib import messages
 class FormDetail(TemplateView):
 
     template_name = "forms/form_detail.html"
@@ -35,7 +35,15 @@ class FormDetail(TemplateView):
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
+        childId = request.GET.get('childID')
         login_required = context["form"].login_required
+        context["childId"] = childId
+        child = Child.objects.filter(id = childId).first()
+        FirstName =  child.first_name
+        LastName = child.last_name
+        DOB = child.Date_of_Birth
+        context["childName"] = FirstName + " " + LastName
+        context["DOB"] = DOB
         if login_required and not request.user.is_authenticated:
             path = urlquote(request.get_full_path())
             bits = (settings.LOGIN_URL, REDIRECT_FIELD_NAME, path)
@@ -59,16 +67,19 @@ class FormDetail(TemplateView):
             for f in form_for_form.files.values():
                 f.seek(0)
                 attachments.append((f.name, f.read()))
-            user_id = request.user.id
-            user = User.objects.get(id = user_id)
-            entry = form_for_form.save(commit=False)
-            entry.save()
-            takenform = TakenForm.objects.filter(user=user, form=form)
 
-            if not takenform:
-                TakenForm.objects.create(user=user, form=form, formentries=entry)
+            children = Child.objects.filter(parent_id =self.request.user.id)
+            valid = False
+            child_id = request.POST.get('childid')
+            for child in children:
+                if int(child_id) == child.id:
+                    valid = True
+
+            if valid:
+                entry = form_for_form.save(commit=False)
+                entry.save()
             else:
-                takenform.update(formentries_id=entry.id)
+                messages.error(request, "You are not allowed to enter others' child information")
             return redirect('home')
 
             form_valid.send(sender=request, form=form_for_form, entry=entry)

@@ -1,7 +1,8 @@
 from django.urls import include, path
 
 from .views import enrollment, parents, teachers, admins
-
+from django.conf.urls.static import static
+from django.conf import settings
 urlpatterns = [
     path('home', enrollment.home, name='home'),
 
@@ -22,4 +23,4 @@ urlpatterns = [
     path('manageuser', admins.manageUserView.as_view(), name='manageuser'),
     ], 'enrollment'), namespace='admins')),
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
