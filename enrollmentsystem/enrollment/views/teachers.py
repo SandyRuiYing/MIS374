@@ -2,8 +2,11 @@ from django.shortcuts import redirect, render
 from django.views.generic import (CreateView)
 from ..forms import TeacherSignUpForm
 from ..models import User
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+from ..decorators import teacher_required
 
-
+# Teacher sign up view
 class TeacherSignUpView(CreateView):
     model = User
     form_class = TeacherSignUpForm
@@ -17,7 +20,9 @@ class TeacherSignUpView(CreateView):
         user = form.save()
         return redirect('/admins/manageuser')
 
-
+# Teacher index view
+@login_required
+@teacher_required
 def index(request):
 
     return render(request, 'enrollment/teachers/index.html')

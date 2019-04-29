@@ -15,6 +15,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 admin.autodiscover()
 
+# url path for application
 urlpatterns = [
     path('', enrollment.home, name="home"),
     path('', include('enrollment.urls')),

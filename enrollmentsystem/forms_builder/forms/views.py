@@ -23,6 +23,11 @@ from forms_builder.forms.signals import form_invalid, form_valid
 from forms_builder.forms.utils import split_choices
 from enrollment.models import User, Child
 from django.contrib import messages
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+from enrollment.decorators import parent_required
+
+@method_decorator([login_required, parent_required], name='dispatch')
 class FormDetail(TemplateView):
 
     template_name = "forms/form_detail.html"

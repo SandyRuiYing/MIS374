@@ -7,6 +7,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/enrollmentsystem/enrollment/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/enrollmentsystem/enrollment/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/admins/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/admins/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/admins/question_add_form.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/admins/question_change_form.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/admins/question_delete_confirm.html" beforeDir="false" />
@@ -16,6 +17,22 @@
       <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/admins/quiz_delete_confirm.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/admins/quiz_results.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/_header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/child_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/child_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/teachers/question_add_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/teachers/question_change_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/teachers/question_delete_confirm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/teachers/quiz_add_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/teachers/quiz_change_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/teachers/quiz_change_list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/teachers/quiz_delete_confirm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/teachers/quiz_results.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/enrollmentsystem/enrollment/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/views/admins.py" beforeDir="false" afterPath="$PROJECT_DIR$/enrollmentsystem/enrollment/views/admins.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/views/enrollment.py" beforeDir="false" afterPath="$PROJECT_DIR$/enrollmentsystem/enrollment/views/enrollment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/views/parents.py" beforeDir="false" afterPath="$PROJECT_DIR$/enrollmentsystem/enrollment/views/parents.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollment/views/teachers.py" beforeDir="false" afterPath="$PROJECT_DIR$/enrollmentsystem/enrollment/views/teachers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/enrollmentsystem/enrollmentsystem/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/enrollmentsystem/enrollmentsystem/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/templates/forms/includes/built_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/templates/forms/includes/built_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/views.py" afterDir="false" />
@@ -31,11 +48,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/models.py">
+      <file leaf-file-name="admins.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/views/admins.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="264" selection-start-line="264" selection-end-line="264" />
+            <state>
+              <caret line="65" selection-start-line="65" selection-end-line="65" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -43,44 +71,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/models.py">
+      <file leaf-file-name="fields.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/fields.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-109">
-              <caret line="11" column="81" selection-start-line="11" selection-start-column="81" selection-end-line="11" selection-end-column="81" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/forms.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="141" column="24" lean-forward="true" selection-start-line="141" selection-start-column="24" selection-end-line="141" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+            <state>
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -88,48 +82,72 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="child_form.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/child_form.html">
+      <file leaf-file-name="enrollment.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/views/enrollment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
+            <state relative-caret-position="68">
+              <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parents.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="parents.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/views/parents.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+            <state relative-caret-position="510">
+              <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="change_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/templates/admin/forms/change_list.html">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="entries.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/templates/admin/forms/entries.html">
+      <file leaf-file-name="update_profile_form.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/update_profile_form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+            <state relative-caret-position="85">
+              <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="built_form.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/templates/forms/includes/built_form.html">
+      <file leaf-file-name="teachers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/views/teachers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+            <state relative-caret-position="374">
+              <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -148,25 +166,39 @@
         <option value="$PROJECT_DIR$/enrollmentsystem/static/css/app.css" />
         <option value="$PROJECT_DIR$/enrollmentsystem/static/css/teachers.css" />
         <option value="$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/forms.py" />
-        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/models.py" />
-        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/forms.py" />
-        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/child_form.html" />
         <option value="$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/templates/forms/includes/built_form.html" />
         <option value="$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/models.py" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/enrollmentsystem/urls.py" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/models.py" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/forms.py" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/decorator.py" />
         <option value="$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/views.py" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/decorators.py" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/child_form.html" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/admins/admin_checklist.html" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/admins/index.html" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/views/admins.py" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/views/enrollment.py" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/views/teachers.py" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/update_profile_form.html" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/urls.py" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/templates/base.html" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/index.html" />
+        <option value="$PROJECT_DIR$/enrollmentsystem/enrollment/views/parents.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="805" />
     <option name="width" value="1148" />
-    <option name="height" value="1528" />
+    <option name="height" value="1535" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -183,12 +215,6 @@
               <item name="MIS374" type="b2602c69:ProjectViewProjectNode" />
               <item name="MIS374" type="462c0819:PsiDirectoryNode" />
               <item name="enrollmentsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="enrollment" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MIS374" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MIS374" type="462c0819:PsiDirectoryNode" />
-              <item name="enrollmentsystem" type="462c0819:PsiDirectoryNode" />
               <item name="forms_builder" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -205,34 +231,15 @@
               <item name="forms_builder" type="462c0819:PsiDirectoryNode" />
               <item name="forms" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MIS374" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MIS374" type="462c0819:PsiDirectoryNode" />
-              <item name="enrollmentsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="forms_builder" type="462c0819:PsiDirectoryNode" />
-              <item name="forms" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MIS374" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MIS374" type="462c0819:PsiDirectoryNode" />
-              <item name="enrollmentsystem" type="462c0819:PsiDirectoryNode" />
-              <item name="forms_builder" type="462c0819:PsiDirectoryNode" />
-              <item name="forms" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="forms" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -263,13 +270,13 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1303" height="833" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49928263" visible="true" weight="0.2880821" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49067432" visible="true" weight="0.2880821" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info id="Structure" order="1" sideWeight="0.50071734" side_tool="true" visible="true" weight="0.2880821" />
+      <window_info id="Structure" order="1" sideWeight="0.5093257" side_tool="true" visible="true" weight="0.2880821" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -286,70 +293,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/templates/admin/forms/change_form.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/templates/admin/forms/change_list.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/settings.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/templates/admin/forms/entries.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2516">
-          <caret line="148" column="55" selection-start-line="148" selection-start-column="55" selection-end-line="148" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/views/parents.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollmentsystem/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="75" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollmentsystem/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2363">
-          <caret line="142" column="16" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/views/parents.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollmentsystem/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -422,13 +365,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollmentsystem/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="75" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/settings.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -439,27 +375,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/admins/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/_header.html" />
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/admins/manageuser.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/enrollmentsystem/static/css/teachers.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -475,20 +391,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/templatetags/forms_builder_tags.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/templates/email_extras/base.html">
       <provider selected="true" editor-type-id="text-editor" />
@@ -509,6 +412,13 @@
     <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/templates/forms/form_detail.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4437">
+          <caret line="264" selection-start-line="264" selection-end-line="264" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/templates/admin/forms/change_list.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -519,54 +429,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/views/parents.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/child_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="69" selection-start-line="15" selection-start-column="69" selection-end-line="15" selection-end-column="69" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="141" column="24" lean-forward="true" selection-start-line="141" selection-start-column="24" selection-end-line="141" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="264" selection-start-line="264" selection-end-line="264" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-109">
-          <caret line="11" column="81" selection-start-line="11" selection-start-column="81" selection-end-line="11" selection-end-column="81" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1819">
+          <caret line="141" column="24" selection-start-line="141" selection-start-column="24" selection-end-line="141" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -577,12 +446,174 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/decorator.py" />
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollmentsystem/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/decorators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+        <state relative-caret-position="486">
+          <caret line="152" column="63" lean-forward="true" selection-start-line="152" selection-start-column="63" selection-end-line="152" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/admins/manageuser.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="14" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/addchild_form.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/child_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/admins/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/admins/admin_checklist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="21" column="77" selection-start-line="21" selection-start-column="77" selection-end-line="21" selection-end-column="77" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/views/enrollment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/views/admins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/fields.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/forms_builder/forms/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/views/teachers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="38" column="128" selection-start-line="38" selection-start-column="128" selection-end-line="38" selection-end-column="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#h2#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/templates/enrollment/parents/update_profile_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enrollmentsystem/enrollment/views/parents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>

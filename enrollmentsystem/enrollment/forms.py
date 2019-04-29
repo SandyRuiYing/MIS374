@@ -1,9 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import (User, Child)
+from .models import (User, Child, Parent)
 from django import forms
 
-
+# Teacher Sign Up Form
 class TeacherSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
@@ -15,11 +15,11 @@ class TeacherSignUpForm(UserCreationForm):
             user.save()
         return user
 
-
+# Parent Sign Up Form
 class ParentSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = ('username','first_name', 'last_name')
+        fields = ('username','first_name', 'last_name','address','phonenumber')
 
     def save(self, commit=True):
         user = super().save(commit=False)
@@ -28,7 +28,7 @@ class ParentSignUpForm(UserCreationForm):
             user.save()
         return user
 
-
+# Admin Sign Up Form
 class AdminSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
@@ -41,14 +41,15 @@ class AdminSignUpForm(UserCreationForm):
         return user
 
 
-
+# Add Child Form for Parent
 class AddChildForm(forms.ModelForm):
     class Meta:
         model = Child
-        fields = ('first_name','last_name','Date_of_Birth',)
+        fields = ('first_name','last_name','Date_of_Birth')
         widgets = {
             'Date_of_Birth': forms.DateInput
         }
 
+# Upload Document Form
 class UploadedDocumentForm(forms.Form):
     document = forms.FileField(label='Select a document')

@@ -1,12 +1,19 @@
 from django.contrib.auth import login
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView
 from ..forms import ParentSignUpForm, AddChildForm
 from ..models import User, Child, UploadDocument
 from django.shortcuts import redirect, render
 from forms_builder.forms.models import Form
+from django.urls import reverse_lazy
+from django.contrib import messages
 import os
 from django.conf import settings
 from django.http import HttpResponse, Http404
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
+from ..decorators import parent_required
+
+# Parent Sign up view
 class ParentSignUpView(CreateView):
    model = User
    form_class = ParentSignUpForm
@@ -21,6 +28,28 @@ class ParentSignUpView(CreateView):
          login(self.request, user)
          return redirect('home')
 
+# Paren profile view
+@method_decorator([login_required, parent_required], name='dispatch')
+class ParentProfileView(UpdateView):
+    model = User
+    form_class = ParentSignUpForm
+    template_name = 'enrollment/parents/update_profile_form.html'
+    success_url = reverse_lazy('home')
+
+    def get_object(self):
+        return self.request.user
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Profile information updated with success!')
+        user = form.save()
+        login(self.request, user)
+        return redirect('home')
+        #return super().form_valid(form)
+
+
+# Parent index view
+@login_required
+@parent_required
 def index(request):
     #model = Child
     #ordering = ('last_name',)
@@ -35,7 +64,8 @@ def index(request):
     return render(request, 'enrollment/parents/index.html', {
         'children': children, 'documents':documents})
 
-
+# Parent add child view
+@method_decorator([login_required, parent_required], name='dispatch')
 class AddChildView(CreateView):
         model = Child
         form_class = AddChildForm
@@ -51,6 +81,9 @@ class AddChildView(CreateView):
             childinfo.save()
             return redirect('home')
 
+# Parent fill out forms view
+@login_required
+@parent_required
 def ChildFormView(request, pk):
 
     model = Form

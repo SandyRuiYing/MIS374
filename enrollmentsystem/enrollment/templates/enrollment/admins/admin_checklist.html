@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Checklist! <span class="icon-emo-happy"></span></h2>
+   <div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Documents Submitted</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in checklist %}
+          <tr>
+            <td class="align-middle">{{i}}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="4"></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+<br>
+<br>
+
+
+{% endblock %}
+
+
+

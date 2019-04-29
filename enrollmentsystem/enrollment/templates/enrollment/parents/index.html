@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Welcome to the Parent Portal! <span class="icon-emo-happy"></span></h2>
-  Step1: Add child to the account if not listed below
-  <br>
+
+  <h2>Welcome to the Parent Portal! <span class="icon-emo-happy"></span><a href="/parents/profile" class="btn btn-parent btn-primary" role="button" style="float: right;" >Edit Profile</a></h2>
+
+
+  <h3> Step1: Add child to the account if not listed below</h3>
   <br>
   <a href="/parents/addchild" class="btn btn-parent btn-primary" role="button">Add Child</a>
   <br>
   <br>
-  Step2: Click child name to access required documents
+  <h3>Step2: Click child name to access required documents</h3>
    <div class="card">
     <table class="table mb-0">
       <thead>
@@ -34,7 +36,9 @@
       </tbody>
     </table>
   </div>
-Step3: Required documents for downloading
+<br>
+<br>
+<h3>Step3: Required documents for downloading</h3>
 <div class="card">
     <table class="table mb-0">
        <thead>
