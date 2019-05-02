@@ -13,6 +13,7 @@ urlpatterns = [
     path('addchild', parents.AddChildView.as_view(), name='addchild'),
     path('childform/<int:pk>/', parents.ChildFormView, name='childform'),
     path('profile', parents.ParentProfileView.as_view(), name='profile'),
+    path('editform/<int:pk>/<int:pk2>/', parents.parentEditForm, name='editform'),
 
     ], 'enrollment'), namespace='parents')),
 

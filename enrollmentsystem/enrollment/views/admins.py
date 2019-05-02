@@ -9,7 +9,10 @@ from django.contrib.auth.decorators import login_required
 from ..decorators import admin_required
 from datetime import date
 
-# Admin sign up view
+# admin sign up view class
+# specify model, form and template for admin sign up view
+# function to get user input data
+# function to save user input data
 class AdminSignUpView(CreateView):
     model = User
     form_class = AdminSignUpForm
@@ -23,13 +26,15 @@ class AdminSignUpView(CreateView):
         user = form.save()
         return redirect('/admins/manageuser')
 
-# Admin index view
+# Admin index view function
 @login_required
 @admin_required()
 def index(request):
     return render(request, 'enrollment/admins/index.html')
 
-# Admin Manage user view
+# Admin Manage user view class
+# specify model and template for admin manage user view
+# function to query user objects by roles
 @method_decorator([login_required, admin_required], name='dispatch')
 class manageUserView(ListView):
     model = User
@@ -42,44 +47,24 @@ class manageUserView(ListView):
         admin = User.objects.filter(is_admin = True)
         return parent, teacher, admin
 
-# class DocumentView(FormView):
-#     template_name = 'enrollment/admins/form_upload.html'
-#     form_class =UploadedDocumentForm
-#
-#     def form_valid(self, form):
-#         if not UploadedDocument.objects.filter(document = self.get_form_kwargs().get('files')['document']):
-#             profile_image = UploadedDocument(
-#                 document =self.get_form_kwargs().get('files')['document'])
-#             profile_image.save()
-#             self.id = profile_image.id
-#
-#             return HttpResponseRedirect(self.get_success_url())
-#
-#     def get_success_url(self):
-#         return reverse('admins:document', kwargs={'pk': self.id})
-#
-# class DocumentDetailView(DetailView):
-#     model = UploadedDocument
-#     template_name = 'enrollment/admins/success_document_upload.html'
-#     context_object_name = 'uploadedImage'
-#
-
-#Admin checklist view
+# Admin checklist view function
+# use for loop to get checklist for admin
+# pass checklist to template
 @login_required
 @admin_required()
 def ChecklistView(request):
 
     checklist = []
-
-    formentry_child = FormEntry.objects.raw('SELECT * FROM enrollment.forms_formentry where entry_time > "' + str(date.today().year)+ '"' )
+    datefilter = str(date.today().year) + "-01-01"
+    formentry_child = FormEntry.objects.filter(entry_time__gte=datefilter)
 
     for i in formentry_child:
         forms_list = ""
         children = Child.objects.filter(id = i.childid)
-        form_id = FormEntry.objects.raw('SELECT * FROM enrollment.forms_formentry where childid = ' + str(i.childid))
+        form_id = FormEntry.objects.filter(childid=i.childid)
         forms_list += str(children.first()) + ":       "
         for j in form_id:
-            forms = Form.objects.raw('SELECT * FROM enrollment.forms_form where id = ' + str(j.form_id))
+            forms = Form.objects.filter(id=j.form_id)
             for k in forms:
                  forms_list = forms_list + k.title + "   "
         if forms_list not in checklist:

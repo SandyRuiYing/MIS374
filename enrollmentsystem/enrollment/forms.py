@@ -4,6 +4,8 @@ from .models import (User, Child, Parent)
 from django import forms
 
 # Teacher Sign Up Form
+# Specify the model used for this form
+# save user to teacher role
 class TeacherSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
@@ -16,6 +18,8 @@ class TeacherSignUpForm(UserCreationForm):
         return user
 
 # Parent Sign Up Form
+# Specify the model used for this form and additional fields required for parent
+# save user to parent role
 class ParentSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
@@ -29,6 +33,8 @@ class ParentSignUpForm(UserCreationForm):
         return user
 
 # Admin Sign Up Form
+# Specify the model used for this form
+# save user to admin role
 class AdminSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
@@ -42,6 +48,7 @@ class AdminSignUpForm(UserCreationForm):
 
 
 # Add Child Form for Parent
+# Specify the model used for this form and fields
 class AddChildForm(forms.ModelForm):
     class Meta:
         model = Child

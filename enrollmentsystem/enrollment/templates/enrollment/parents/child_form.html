@@ -11,12 +11,37 @@
 <br>
     <h4>Documents of {{child.first_name}} {{child.last_name}}</h4>
 <br>
-    {% for form in Form %}
+    {% for form in form %}
+       {% if form.title in checklist %}
+            <input type="checkbox" name="submitted" checked />
+       {% else %}
+             <input type="checkbox" name="submitted" unchecked />
+       {% endif %}
+            <a href="{{ form.get_absolute_url }}?childID={{ child.id }}">{{ form.title }}</a>
 
-       <p><a href="{{ form.get_absolute_url }}?childID={{ child.id }}">{{ form.title }}</a></p>
-        <br>
+       <br>
     {% endfor %}
 </body>
 
-
+<div class="card">
+    <table class="table mb-0">
+      <thead>
+        <tr>
+          <th>Documents Submitted</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in checklist %}
+          <tr>
+            <td class="align-middle">{{i}}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td class="bg-light text-center font-italic" colspan="4"></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 {% endblock %}

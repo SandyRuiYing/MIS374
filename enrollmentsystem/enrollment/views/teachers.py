@@ -6,7 +6,10 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from ..decorators import teacher_required
 
-# Teacher sign up view
+# Teacher sign up view class
+# specify model, form and template for teacher sign up view
+# function to get user input data
+# function to save user input data
 class TeacherSignUpView(CreateView):
     model = User
     form_class = TeacherSignUpForm
@@ -20,9 +23,8 @@ class TeacherSignUpView(CreateView):
         user = form.save()
         return redirect('/admins/manageuser')
 
-# Teacher index view
+# Teacher index view function
 @login_required
 @teacher_required
 def index(request):
-
     return render(request, 'enrollment/teachers/index.html')
