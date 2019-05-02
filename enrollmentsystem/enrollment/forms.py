@@ -23,7 +23,7 @@ class TeacherSignUpForm(UserCreationForm):
 class ParentSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = ('username','first_name', 'last_name','address','phonenumber')
+        fields = ('username','first_name', 'last_name','address','city','state','zipcode','phone_number')
 
     def save(self, commit=True):
         user = super().save(commit=False)

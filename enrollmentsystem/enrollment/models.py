@@ -8,7 +8,11 @@ class User(AbstractUser):
     is_teacher = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
     address = models.CharField(max_length=255, null=True)
-    phonenumber = models.CharField(max_length=255, null=True)
+    state = models.CharField(max_length=255, null=True)
+    city = models.CharField(max_length=255, null=True)
+    zipcode = models.IntegerField(null = True)
+    phone_number = models.CharField(max_length=255, null=True)
+
 
 # Parent User Model
 class Parent(models.Model):

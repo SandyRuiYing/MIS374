@@ -26,6 +26,7 @@ from django.contrib import messages
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from enrollment.decorators import parent_required
+from django.shortcuts import redirect, render
 from datetime import datetime
 
 @method_decorator([login_required, parent_required], name='dispatch')
@@ -43,27 +44,33 @@ class FormDetail(TemplateView):
         context = self.get_context_data(**kwargs)
         childId = request.GET.get('childID')
         context["childId"] = childId
-        #formentry = FormEntry.objects.filter().last()
-        #instance = formentry
-        #form = context["form"]
-        #form_for_form = FormForForm(form, RequestContext(request),
-                                   # request.GET or None,
-                                    #request.FILES or None, instance, kwargs)
         login_required = context["form"].login_required
+        formentry = FormEntry.objects.filter().last()
+        instance = formentry
+        form_for_form = FormForForm(context["form"], RequestContext(request),
+                           request.GET or None,
+                           request.FILES or None, instance, kwargs)
+        context['form_for_form'] = form_for_form
         child = Child.objects.filter(id = childId).last()
         entry = FormEntry.objects.filter(childid=childId)
+
         for i in entry:
               fieldentry = FieldEntry.objects.filter(entry_id= i.id)
               field = Field.objects.filter(form_id = i.form_id)
               for j in range(len(fieldentry)):
-                    context[field[j].label] = fieldentry[j].value
-
-        FirstName =  child.first_name
-        LastName = child.last_name
-
+                     value = field[j].label.replace(" ",'')
+                     context[value] = fieldentry[j].value
         DOB = str(child.Date_of_Birth)
-        context["childName"] = FirstName + " " + LastName
-        context["DOB"] = DOB
+        context['FirstName'] = self.request.user.first_name
+        context['LastName'] = self.request.user.last_name
+        FirstName = child.first_name
+        LastName = child.last_name
+        context["ChildName"] = FirstName + " " + LastName
+        context["DateofBirth"] = DOB
+        context["PhoneNumber"] = self.request.user.phone_number
+        context["Address"] = str(self.request.user.address) + " " + str(self.request.user.city) + " " + str(
+            self.request.user.state) + " " + str(self.request.user.zipcode)
+
         if login_required and not request.user.is_authenticated:
             path = urlquote(request.get_full_path())
             bits = (settings.LOGIN_URL, REDIRECT_FIELD_NAME, path)
@@ -163,6 +170,9 @@ class FormDetail(TemplateView):
 form_detail = FormDetail.as_view()
 
 
+
+
+
 def form_sent(request, slug, template="forms/form_sent.html"):
     """
     Show the response message.
@@ -170,3 +180,4 @@ def form_sent(request, slug, template="forms/form_sent.html"):
     published = Form.objects.published(for_user=request.user)
     context = {"form": get_object_or_404(published, slug=slug)}
     return render_to_response(template, context, RequestContext(request))
+
