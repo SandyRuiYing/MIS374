@@ -168,7 +168,8 @@ class AbstractField(models.Model):
     A field for a user-built form.
     """
 
-    label = models.CharField(_("Label"), max_length=settings.LABEL_MAX_LENGTH)
+    #label = models.CharField(_("Label"), max_length=settings.LABEL_MAX_LENGTH)
+    label = models.CharField(_("Label"), max_length=1000)
     slug = models.SlugField(_('Slug'), max_length=2000, blank=True,
             default="")
     field_type = models.IntegerField(_("Type"), choices=fields.NAMES)
@@ -183,7 +184,7 @@ class AbstractField(models.Model):
         max_length=settings.FIELD_MAX_LENGTH)
     placeholder_text = models.CharField(_("Placeholder Text"), null=True,
         blank=True, max_length=100, editable=settings.USE_HTML5)
-    help_text = models.CharField(_("Help text"), blank=True, max_length=settings.HELPTEXT_MAX_LENGTH)
+    help_text = models.CharField(_("Help text"), blank=True, max_length=1000)
 
     objects = FieldManager()
 

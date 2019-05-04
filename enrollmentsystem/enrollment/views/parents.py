@@ -92,7 +92,8 @@ class AddChildView(CreateView):
 # pass forms, child object/id, checklist to template
 @login_required
 @parent_required
-def ChildFormView(request, pk):
+def ChildFormView(request,pk):
+
     form = Form.objects.filter()
     child = Child.objects.get(id = pk)
     form1 = Form.objects.first()

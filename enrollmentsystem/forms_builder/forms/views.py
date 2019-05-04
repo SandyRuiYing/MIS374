@@ -53,12 +53,11 @@ class FormDetail(TemplateView):
         context['form_for_form'] = form_for_form
         child = Child.objects.filter(id = childId).last()
         entry = FormEntry.objects.filter(childid=childId)
-
         for i in entry:
               fieldentry = FieldEntry.objects.filter(entry_id= i.id)
               field = Field.objects.filter(form_id = i.form_id)
               for j in range(len(fieldentry)):
-                     value = field[j].label.replace(" ",'')
+                     value = field[j].label.replace(' ','').replace('/','').replace('(','').replace(')','').replace(':','').replace('?','').replace(',', '').replace("'",'')
                      context[value] = fieldentry[j].value
         DOB = str(child.Date_of_Birth)
         context['FirstName'] = self.request.user.first_name
@@ -66,6 +65,7 @@ class FormDetail(TemplateView):
         FirstName = child.first_name
         LastName = child.last_name
         context["ChildName"] = FirstName + " " + LastName
+        context["UserFullName"] = str(self.request.user.first_name) + " " +str(self.request.user.last_name)
         context["DateofBirth"] = DOB
         context["PhoneNumber"] = self.request.user.phone_number
         context["Address"] = str(self.request.user.address) + " " + str(self.request.user.city) + " " + str(
@@ -108,6 +108,10 @@ class FormDetail(TemplateView):
             if valid:
                 entry = form_for_form.save(commit=False)
                 entry.save()
+                formentry = FormEntry.objects.filter(childid=child_id, form_id=form.id)
+                if len(formentry) > 1:
+                    pre_formentry = FormEntry.objects.filter(childid=child_id, form_id=form.id).first()
+                    FormEntry.objects.filter(id=pre_formentry.id).delete()
             else:
                 messages.error(request, "You are not allowed to enter others' child information")
             return redirect('home')
