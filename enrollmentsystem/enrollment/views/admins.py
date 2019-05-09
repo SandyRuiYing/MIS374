@@ -53,21 +53,30 @@ class manageUserView(ListView):
 @login_required
 @admin_required()
 def ChecklistView(request):
-
-    checklist = []
     datefilter = str(date.today().year) + "-01-01"
     formentry_child = FormEntry.objects.filter(entry_time__gte=datefilter)
 
+    child_id_list = []
     for i in formentry_child:
-        forms_list = ""
-        children = Child.objects.filter(id = i.childid)
-        form_id = FormEntry.objects.filter(childid=i.childid)
-        forms_list += str(children.first()) + ":       "
-        for j in form_id:
-            forms = Form.objects.filter(id=j.form_id)
-            for k in forms:
-                 forms_list = forms_list + k.title + "   "
-        if forms_list not in checklist:
-             checklist.append(forms_list)
+        child_id_list.append(i.childid)
+
+    children = Child.objects.filter(id__in=child_id_list).order_by('last_name')
+
+    child_form_list = {}
+    for i in children:
+
+        formentries = FormEntry.objects.filter(childid=i.id)
+        form_list = []
+        for j in formentries:
+            formname = Form.objects.filter(id=j.form_id).last()
+            form_list.append(formname.title)
+        child_form_list[i] = form_list
+
+    formslist = []
+    forms = Form.objects.published()
+    for i in forms:
+        formslist.append(i.title)
+    count = len(child_form_list)
     return render(request, 'enrollment/admins/admin_checklist.html', {
-        'checklist': checklist})
+        'childlist': child_form_list, 'forms': formslist, 'count': count})
+

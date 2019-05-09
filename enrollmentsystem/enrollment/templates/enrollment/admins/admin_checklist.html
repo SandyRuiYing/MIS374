@@ -2,28 +2,29 @@
 
 {% block content %}
   <h2>Checklist! <span class="icon-emo-happy"></span></h2>
-   <div class="card">
-    <table class="table mb-0">
-      <thead>
-        <tr>
-          <th>Documents Submitted</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for i in checklist %}
-          <tr>
-            <td class="align-middle">{{i}}</td>
-          </tr>
-        {% empty %}
-          <tr>
-            <td class="bg-light text-center font-italic" colspan="4"></td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
+<br>
+    {% for key, value in childlist.items %}
+      <tr>
+        <td class="align-middle">{{key}}</td>
+          <br>
+         {% for i in forms %}
+             {% if i in value %}
+                    <input type="checkbox" name="submitted" checked />
+             {% else %}
+                    <input type="checkbox" name="submitted" unchecked />
 
+             {% endif %}
+               <td class="align-middle">{{i}}</td>
+             <br>
+        {% endfor %}
+          <br>
+      </tr>
+    {% empty %}
+      <tr>
+        <td class="bg-light text-center font-italic" colspan="4"></td>
+      </tr>
+    {% endfor %}
+     <td class="align-right">Total of {{count}} Students</td>
 
 {% endblock %}
 
